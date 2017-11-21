@@ -1,0 +1,52 @@
+body {
+    background-color: #bdc3c7
+}
+
+.all-movies{
+    box-sizing: border-box;
+    margin:10px;
+    background-color: #f0eeeb;
+    padding: 10px;
+    cursor: pointer;
+}
+.user-movies{
+    box-sizing: border-box;
+    margin:10px;
+    background-color: #f0eeeb;
+    padding: 10px;
+}
+.all-img {
+    width: 100%;
+    height: 200px;
+}
+.user-topic{
+    background-color: #e74c3c;
+    margin-top: 20px;
+    height: 180px;
+    padding: 20px;
+}
+
+.hr{
+    border: 3px solid black;
+    margin: auto;
+}
+.removeBtn {
+    text-align: center;
+    color: red;
+    margin-top: 10px;
+}
+.selectmovie{
+    text-align: center;
+    margin: 100px;    
+    color: white;
+}
+
+.yeardrop{
+    margin-right: 30px;
+}
+.budget {
+    position: absolute;
+    font-family: Garamond, serif;
+    top: 4%;
+    right: 11%;
+}

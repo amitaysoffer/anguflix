@@ -1,0 +1,79 @@
+<html lang="en" ng-app="movieApp">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="font-awesome/css/font-awesome.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>Document</title>
+</head>
+
+<body ng-controller="angulflixCtrl">
+
+    <section class="container">
+        <div class="row user-topic">
+            <div class="budget">
+                <h4> Budget left: {{ budget.number -- amount | currency }}</h4>
+               ADD MONEY: <input type="text" ng-model="amount">
+                <button type="button" ng-click="addAmount()">Click Me!</button>
+            </div>
+            <h1 class="test">My Collections</h1>
+            <div class="form-inline">
+                <input type="text" class="form-control" id="usr" ng-model="userTitleSearch" placeholder="Search by title">
+                <select>
+                        <option class="yeardrop" ng-repeat="x in names">{{x}}</option>
+                        </select>
+                <a href="#">
+                <i class="fa fa-trash-o" style="font-size:25px;color:black" ng-click="binFun()" ng-hide="changeBin" ></i>
+                <i class="fa fa-check" style="font-size:25px;color:black" ng-click="binFun()" ng-show="changeBin"></i>
+            </a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4" ng-repeat="movie in userMovies | filter:{title:userTitleSearch}  track by $index">
+                <div class="user-movies" ng-model="removeButton">
+                    <img class="all-img" src="{{movie.img}}">
+                    <a href="#">
+                        <p class="removeBtn" ng-if="changeBin" ng-click="removeMovie()">{{removeButton}}</p>
+                    </a>
+                    <h4>{{movie.title}} ,{{movie.year}}</h4>
+                    <p>{{movie.descrShort}}</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <h3 ng-show="condition()" class="selectmovie"> {{topicSelect}} </h3>
+        </div>
+
+        <hr class="hr">
+    </section>
+
+
+    <section class="container">
+        <div class="row">
+            <h3 class="all-movies-topic"> All Movies</h3>
+            <form>
+                <input type="text" class="allMovies-search" placeholder="Search by title" ng-model="titleSearch">
+            </form>
+        </div>
+        <div class="row">
+            <div class="col-md-4" ng-click="addMovie(movie)" ng-repeat="movie in movies  | filter:{title:titleSearch} track by $index">
+                <div class="all-movies">
+                    <img class="all-img" src="{{movie.img}}">
+                    <h4>{{movie.title}} ,{{movie.year}}</h4>
+                    <p>{{movie.descrShort}}</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <script type="text/javascript" src="angular/angular.js"></script>
+    <script type="text/javascript" src="app.js"></script>
+    <script type="text/javascript" src="anguflixCtrl.js"></script>
+</body>
+
+</html>
